@@ -59,10 +59,37 @@
       <p>La configuració de xarxa és <strong>imprescindible</strong> per poder actualitzar el sistema i
          instal·lar programari nou.</p>
       <ul>
-        <li>Comprovar l'adreça IP assignada amb <code>ip a</code>.</li>
-        <li>Configurar una IP estàtica si el servei ho requereix.</li>
-        <li>Verificar la connectivitat amb <code>ping</code>.</li>
-      </ul>
+    <li>
+      <strong>Comprovar l'adreça IP assignada amb <code>ip a</code>.</strong>
+      <p>
+        Executem l'ordre <code>ip a</code> al terminal per consultar les
+        interfícies de xarxa i comprovar l'adreça IP assignada al sistema.
+      </p>
+      <img src="../img/IP.png"
+           alt="Resultat de l'ordre ip a al terminal">
+    </li>
+
+    <li>
+      <strong>Configurar una IP estàtica si el servei ho requereix.</strong>
+      <p>
+        Accedim a la configuració de xarxa, seleccionem la pestanya IPv4
+        i triem el mètode manual per configurar una adreça IP estàtica.
+      </p>
+      <img src="../img/IP%20EST%C3%80TICa.png"
+           alt="Configuració manual d'una adreça IP estàtica">
+    </li>
+
+    <li>
+      <strong>Verificar la connectivitat amb <code>ping</code>.</strong>
+      <p>
+        Executem l'ordre <code>ping 192.168.0.28</code> per comprovar
+        que hi ha comunicació amb l'adreça IP indicada. Si rebem
+        respostes, la connectivitat funciona correctament.
+      </p>
+      <img src="../img/PING.png"
+           alt="Resultat de la comprovació de connectivitat amb ping">
+    </li>
+  </ul>
       <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
     </article>
     <article class="apartat" id="apartat3">
