@@ -36,24 +36,72 @@
       </tbody>
     </table>
 
-    <article class="apartat" id="apartat1">
-      <h2>1. Instal·lació del sistema operatiu</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Un cop arrencat
-         el suport d'instal·lació, cal seguir l'assistent i triar les opcions de
-         particionat abans de continuar. <strong>Aquest pas és irreversible</strong>,
-         així que revisa bé el disc de destinació.</p>
-      <ul>
-        <li>Arrencar des del USB o la imatge ISO.</li>
-        <li>Triar l'idioma i la distribució de teclat.</li>
-        <li>Configurar el particionat del disc.</li>
-        <li>Esperar que finalitzi la còpia d'arxius i reiniciar.</li>
-      </ul>
-      <img src="../img/exemple.svg" alt="Exemple de captura de pantalla de l'assistent d'instal·lació">
-      <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-         Un cop reiniciat el sistema, comprova que arrenca correctament i que
-         reconeix tot el maquinari abans de continuar amb el següent apartat.</p>
-      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
-    </article>
+ <article class="apartat" id="apartat1">
+  <h2>1. Instal·lació del sistema operatiu</h2>
+
+  <p>
+    En aquest apartat es mostra informació del sistema Ubuntu
+    i es consulten algunes de les configuracions bàsiques
+    de l'ordinador, com ara la informació del sistema,
+    la distribució del teclat i les particions del disc.
+  </p>
+
+  <h3>Informació del sistema operatiu</h3>
+
+  <p>
+    A la configuració podem consultar la versió del sistema
+    operatiu, el model de l'ordinador, el processador,
+    la memòria RAM i la capacitat del disc. En aquest cas,
+    el sistema instal·lat és Ubuntu 24.04.5 LTS.
+  </p>
+
+  <img src="UBUNTU.png"
+       alt="Informació general del sistema Ubuntu"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <h3>Configuració del teclat</h3>
+
+  <p>
+    En aquest pas es consulta la configuració del teclat
+    per comprovar quina distribució està seleccionada.
+    És important utilitzar una distribució adequada
+    per poder escriure correctament els caràcters i símbols.
+  </p>
+
+  <img src="TECLAT.png"
+       alt="Configuració de la distribució del teclat"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <h3>Comprovació del disc i les particions</h3>
+
+  <p>
+    Amb l'aplicació Discos podem consultar les característiques
+    del disc d'emmagatzematge i veure com està distribuït.
+    A la captura es mostra un disc Kingston d'aproximadament
+    960 GB, amb una taula de particions GPT.
+  </p>
+
+  <p>
+    També s'hi observa una partició EFI, utilitzada habitualment
+    per a l'arrencada del sistema, i una partició amb el sistema
+    de fitxers ext4.
+  </p>
+
+  <img src="DISCS.png"
+       alt="Informació del disc i les seves particions"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <p>
+    Aquestes comprovacions permeten conèixer la configuració
+    actual de l'ordinador abans de continuar amb les altres
+    tasques de la pràctica. Les captures mostren el sistema
+    principal i no l'assistent d'instal·lació d'una màquina virtual.
+  </p>
+
+  <p class="tornar-index">
+    <a href="#index-apartats">↑ Tornar a l'índex</a>
+  </p>
+</article>
     <article class="apartat" id="apartat2">
       <h2>2. Configuració de xarxa bàsica</h2>
       <p>La configuració de xarxa és <strong>imprescindible</strong> per poder actualitzar el sistema i
