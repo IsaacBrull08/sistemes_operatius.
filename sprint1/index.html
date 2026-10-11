@@ -145,21 +145,55 @@
     <a href="#index-apartats">↑ Tornar a l'índex</a>
   </p>
 </article>
-   <article class="apartat" id="apartat4">
-      <h2>4. Comprovació final</h2>
-      <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero
-         tempore, cum soluta nobis est eligendi optio cumque nihil impedit.
-         Abans de donar per acabat el sprint, revisa aquest resum:</p>
-      <ul>
-        <li>El sistema arrenca sense errors.</li>
-        <li>La xarxa respon correctament als <em>pings</em>.</li>
-        <li><strong>Els usuaris i grups creats coincideixen amb l'enunciat.</strong></li>
-      </ul>
-      <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-         fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-         sequi nesciunt.</p>
-      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
-    </article>
+<article class="apartat" id="apartat4">
+  <h2>4. Comprovació final</h2>
+
+  <p>
+    En aquest últim apartat comprovem que les configuracions
+    realitzades durant la pràctica funcionen correctament.
+    Hem revisat la connexió de xarxa i la creació d'un usuari
+    al sistema Ubuntu.
+  </p>
+
+  <h3>Comprovació de la xarxa</h3>
+
+  <p>
+    Amb l'ordre <code>ip a</code> podem consultar les interfícies
+    de xarxa i les adreces IP assignades. Després, utilitzem
+    <code>ping 192.168.0.28</code> per comprovar la comunicació
+    amb l'adreça indicada. Les respostes rebudes confirmen que
+    aquesta comunicació funciona correctament.
+  </p>
+
+  <h3>Comprovació de l'usuari</h3>
+
+  <p>
+    Hem creat l'usuari <code>alumne</code> amb l'ordre
+    <code>sudo useradd -m alumne</code> i li hem assignat
+    una contrasenya amb <code>sudo passwd alumne</code>.
+    Finalment, amb <code>id alumne</code> hem comprovat que
+    l'usuari existeix i hem consultat el seu UID, GID i grups.
+  </p>
+
+  <h3>Resultat final</h3>
+
+  <ul>
+    <li>La interfície de xarxa té una adreça IP assignada.</li>
+    <li>La prova de connectivitat amb ping ha rebut respostes.</li>
+    <li>L'usuari alumne s'ha creat correctament.</li>
+    <li>La contrasenya de l'usuari s'ha assignat correctament.</li>
+  </ul>
+
+  <p>
+    Amb aquestes comprovacions, hem verificat el funcionament
+    de la xarxa i la creació de l'usuari. Queden pendents les
+    altres comprovacions de la pràctica que encara no hàgim fet.
+  </p>
+
+  <p class="tornar-index">
+    <a href="#index-apartats">↑ Tornar a l'índex</a>
+  </p>
+</article>
   </section>
 </main>
 
