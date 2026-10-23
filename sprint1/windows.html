@@ -35,3 +35,262 @@
         <tr><td>4</td><td><a href="#apartat4">Comprovació final</a></td></tr>
       </tbody>
     </table>
+
+    <!-- APARTAT 1 -->
+<article class="apartat" id="apartat1">
+  <h2>1. Màquina virtual, instal·lació i particions</h2>
+
+  <p>
+    Una màquina virtual és un ordinador simulat que funciona dins del sistema real. En aquest apartat es detalla la creació d'una màquina virtual a VirtualBox, la instal·lació de Windows 10 i la distribució del disc en diferents particions.
+  </p>
+
+  <h3>Creació de la màquina virtual</h3>
+  <p>
+    Es crea una màquina virtual anomenada <code>Windows-NomCognom</code> configurada amb 4 GB de memòria RAM i un disc dur virtual de 50 GB.
+  </p>
+  <img src="1.1_VirtualBox_RAM_Disc.png"
+       alt="Creació de la màquina virtual a VirtualBox amb 4GB RAM i 50GB de disc"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <h3>Configuració de xarxa inicial</h3>
+  <p>
+    A la configuració de xarxa de la màquina virtual es comprova que l'Adaptador 1 està habilitat i en mode NAT per defecte.
+  </p>
+  <img src="1.2_Xarxa_Mode_NAT.png"
+       alt="Configuració de l'adaptador de xarxa en mode NAT"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <h3>Instal·lació i particionat del disc</h3>
+  <p>
+    Es carrega la imatge ISO de Windows 10 i s'inicia la instal·lació. A la pantalla de particions es crea una partició de 30 GB per al sistema Windows i es deixen 20 GB sense assignar per utilitzar posteriorment.
+  </p>
+  <img src="1.4_Particio_30GB_20GB_lliures.png"
+       alt="Creació de la partició de 30GB deixant 20GB lliures"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <h3>Creació de la partició DADES (D:)</h3>
+  <p>
+    Un cop completada la instal·lació i arrencat el sistema, s'obre l'Eina d'Administració de discs (<code>diskmgmt.msc</code>). Amb l'espai no assignat de 20 GB es crea un volum simple NTFS amb la lletra <strong>D:</strong> i el nom de volum <strong>DADES</strong>.
+  </p>
+  <img src="1.5_Diskmgmt_Particio_DADES.png"
+       alt="Administrador de discs amb la partició D: DADES creada en NTFS"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <p class="tornar-index">
+    <a href="#index-apartats">↑ Tornar a l'índex</a>
+  </p>
+</article>
+
+<!-- APARTAT 2 -->
+<article class="apartat" id="apartat2">
+  <h2>2. Llicències</h2>
+
+  <p>
+    Per utilitzar Windows de forma legal cal comptar amb una llicència activada. En aquest apartat es comprova l'estat d'activació del sistema i s'analitzen els diferents tipus de llicències (Retail, OEM, Volum i CAL).
+  </p>
+
+  <h3>Estat d'activació del sistema</h3>
+  <p>
+    Accedint a <em>Configuració → Sistema → Activació</em> es consulta l'edició exacta de Windows instal·lada i el seu estat d'activació actual.
+  </p>
+  <img src="2.1_Configuracio_Activacio_Windows.png"
+       alt="Consulta de l'edició i estat d'activació a Configuració"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <h3>Consultes amb la línia de comandes</h3>
+  <p>
+    Des del Símbol del sistema (<code>cmd</code>) s'executen les ordres <code>slmgr /xpr</code> per veure la data de caducitat de l'activació i <code>slmgr /dli</code> per obtenir els detalls del tipus de llicència.
+  </p>
+  <img src="2.2_CMD_slmgr_xpr_dli.png"
+       alt="Execució de slmgr /xpr i slmgr /dli al terminal"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <h3>Comparativa de preus</h3>
+  <p>
+    S'efectua una cerca del cost oficial de Windows 11 Home i Pro a la botiga oficial de Microsoft i es compara amb distribuïdors autoritzats de tercers.
+  </p>
+  <img src="2.3_Preus_Windows11_Home_Pro.png"
+       alt="Cerca de preus de Windows 11 Home i Pro a botigues oficials i alternatives"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <h3>Llicències CAL (Client Access License)</h3>
+  <p>
+    S'investiga el concepte de llicència CAL a la documentació oficial de Microsoft. Aquest tipus de llicència és necessària perquè els usuaris o equips puguin accedir als serveis d'un servidor Windows Server.
+  </p>
+  <img src="2.4_Cerca_Concepte_CAL.png"
+       alt="Informació i explicació del concepte de llicència CAL"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <p class="tornar-index">
+    <a href="#index-apartats">↑ Tornar a l'índex</a>
+  </p>
+</article>
+
+<!-- APARTAT 3 -->
+<article class="apartat" id="apartat3">
+  <h2>3. Comandes bàsiques</h2>
+
+  <p>
+    La línia de comandes (CMD) permet administrar el sistema operatiu escrivint ordres de manera ràpida i eficaç. A continuació es detalla la seqüència de comandes executades.
+  </p>
+
+  <ul>
+    <li>
+      <strong>Creació de directori de treball:</strong>
+      <p>Entrem a l'Escriptori amb <code>cd Desktop</code>, creem una carpeta de treball amb <code>mkdir practica</code> i accedim amb <code>cd practica</code>.</p>
+      <img src="3.1_CMD_mkdir_practica.png"
+           alt="Creació i accés a la carpeta practica amb cd i mkdir"
+           style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+    </li>
+
+    <li>
+      <strong>Creació de fitxer de text:</strong>
+      <p>Generem un fitxer amb la comanda <code>echo hola > nota.txt</code> i verifiquem la seva existència amb <code>dir</code>.</p>
+      <img src="3.2_CMD_echo_nota_dir.png"
+           alt="Creació del fitxer nota.txt i comprovació amb dir"
+           style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+    </li>
+
+    <li>
+      <strong>Còpia de seguretat de fitxer:</strong>
+      <p>Dupliquem el fitxer mitjançant <code>copy nota.txt copia.txt</code> i utilitzem <code>dir</code> per validar la còpia.</p>
+      <img src="3.3_CMD_copy_copia_dir.png"
+           alt="Còpia del fitxer nota.txt a copia.txt amb copy"
+           style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+    </li>
+
+    <li>
+      <strong>Moure fitxers a subcarpetes:</strong>
+      <p>Creem el subdirectori <code>mkdir arxiu</code> i movem el fitxer duplicat amb <code>move copia.txt arxiu</code>.</p>
+      <img src="3.4_CMD_mkdir_arxiu_move.png"
+           alt="Creació de la carpeta arxiu i desplaçament de copia.txt amb move"
+           style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+    </li>
+
+    <li>
+      <strong>Canvi de nom de fitxers i carpetes:</strong>
+      <p>Canviem els noms del fitxer original i del directori amb <code>ren nota.txt notes.txt</code> i <code>ren arxiu backup</code>.</p>
+      <img src="3.5_CMD_ren_notes_backup.png"
+           alt="Canvi de nom de nota.txt i la carpeta arxiu amb ren"
+           style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+    </li>
+
+    <li>
+      <strong>Navegació interna:</strong>
+      <p>Accedim a la carpeta amb <code>cd backup</code>, llistem el contingut amb <code>dir</code> i retornem amb <code>cd ..</code>.</p>
+      <img src="3.6_CMD_cd_backup_dir.png"
+           alt="Navegació i comprovació de continguts amb cd i dir"
+           style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+    </li>
+
+    <li>
+      <strong>Visualització de l'estructura en arbre:</strong>
+      <p>Mostrem la jerarquia completa de fitxers i directori mitjançant la comanda <code>tree /f</code>.</p>
+      <img src="3.7_CMD_tree_f.png"
+           alt="Visualització jeràrquica amb tree /f"
+           style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+    </li>
+
+    <li>
+      <strong>Eliminació de fitxers:</strong>
+      <p>Esborrem el fitxer amb <code>del notes.txt</code> i comprovem que ja no existeix amb <code>dir</code>.</p>
+      <img src="3.8_CMD_del_notes_dir.png"
+           alt="Esborrat de fitxers amb del i comprovació amb dir"
+           style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+    </li>
+  </ul>
+
+  <p class="tornar-index">
+    <a href="#index-apartats">↑ Tornar a l'índex</a>
+  </p>
+</article>
+
+<!-- APARTAT 4 -->
+<article class="apartat" id="apartat4">
+  <h2>4. Aplicacions i punts de restauració</h2>
+
+  <p>
+    Un punt de restauració guarda l'estat del sistema per poder tornar a un moment funcional si es produeix un error. En aquest apartat es comprova el funcionament de la restauració instal·lant i eliminant l'aplicació Google Chrome.
+  </p>
+
+  <h3>Creació del punt de restauració</h3>
+  <p>
+    S'activa la protecció del sistema a la unitat principal C: i es crea manualment un punt de restauració anomenat <strong>Abans de Chrome</strong>.
+  </p>
+  <img src="4.1_Punt_Restauracio_Abans_Chrome.png"
+       alt="Creació del punt de restauració Abans de Chrome"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <h3>Instal·lació de programari</h3>
+  <p>
+    Es descarrega l'instal·lador oficial de Google Chrome des del navegador, s'executa la instal·lació i s'obre l'aplicació correctament.
+  </p>
+  <img src="4.2_Chrome_Instal·lat_i_Obert.png"
+       alt="Google Chrome instal·lat i executat al sistema"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <h3>Avaluació de programes afectats</h3>
+  <p>
+    S'obre l'assistent de restauració, es tria el punt creat prèviament i es prem <em>Cerca programes afectats</em>. Es comprova que Google Chrome apareix a la llista d'aplicacions que s'eliminaran.
+  </p>
+  <img src="4.3_Cerca_Programes_Afectats_Chrome.png"
+       alt="Comprovació dels programes afectats per la restauració del sistema"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <h3>Execució i verificació de la restauració</h3>
+  <p>
+    Es confirma el procés de restauració del sistema. Després del reinici automàtic, es comprova que Google Chrome ha estat completament eliminat mentre que els fitxers de l'usuari es mantenen intactes.
+  </p>
+  <img src="4.4_Comprovacio_Post_Restauracio.png"
+       alt="Comprovació de l'eliminació de Chrome després de la restauració"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <p class="tornar-index">
+    <a href="#index-apartats">↑ Tornar a l'índex</a>
+  </p>
+</article>
+
+<!-- APARTAT 5 -->
+<article class="apartat" id="apartat5">
+  <h2>5. Xarxa</h2>
+
+  <p>
+    En aquest apartat s'analitza el comportament de la connectivitat TCP/IP i la resolució de noms DNS realitzant proves amb diferents modes d'adaptador de xarxa.
+  </p>
+
+  <h3>Prova 1: Adaptador en mode NAT</h3>
+  <p>
+    Amb l'adaptador en NAT, s'executa <code>ipconfig</code> per consultar la IP assignada i es comprova la connectivitat tant a un domini (<code>ping google.com</code>) com a una IP externa (<code>ping 8.8.8.8</code>).
+  </p>
+  <img src="5.1_NAT_ipconfig_pings.png"
+       alt="Execució de ipconfig i pings en mode NAT"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <h3>Prova 2: Cable de xarxa desconnectat</h3>
+  <p>
+    A VirtualBox se desmarca l'opció <em>Connecta el cable</em>. En repetir els dos pings, el sistema mostra un error d'impossibilitat de connexió per manca de medi físic.
+  </p>
+  <img src="5.2_Sense_Cable_pings.png"
+       alt="Comprovació de fallo de ping amb el cable desconnectat"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <h3>Prova 3: Adaptador en mode Adaptador pont</h3>
+  <p>
+    Es torna a connectar el cable i es canvia el mode a <em>Adaptador pont</em>. S'executa de nou <code>ipconfig</code> observant que l'equip rep una IP del mateix rang que la xarxa física real, i es confirma que els dos pings tornen a funcionar.
+  </p>
+  <img src="5.3_Adaptador_Pont_pings.png"
+       alt="Proves de ipconfig i pings en mode Adaptador pont"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <h3>Prova 4: Configuració de DNS manual erroni</h3>
+  <p>
+    S'assigna manualment la IP <code>1.2.3.4</code> com a servidor DNS primari. En repetir les proves, <code>ping 8.8.8.8</code> funciona (connexió per IP directa) però <code>ping google.com</code> falla, demostrant que el servei de resolució de noms no està operatiu. Finalment es torna a restablir el DNS automàtic.
+  </p>
+  <img src="5.4_DNS_Manual_1.2.3.4_pings.png"
+       alt="Comprovació de fallo de resolució DNS amb servidor 1.2.3.4"
+       style="display:block; width:100%; max-width:820px; height:auto; margin:20px auto;">
+
+  <p class="tornar-index">
+    <a href="#index-apartats">↑ Tornar a l'índex</a>
+  </p>
+</article>
