@@ -39,7 +39,7 @@
       <h2>1. Gestió de processos</h2>
     <h3>Captura 1 · Preparació dels scripts i inici del sabotatge</h3>
       <p>He creat els cinc scripts de la missió dins la carpeta <code>~/missio</code> i els he donat permisos d'execució, tal com es veu amb l'ordre <code>ls -l</code> on tots apareixen amb la <code>x</code> i en color verd. Després, he executat <code>./sospitosos.sh</code> per posar en marxa els processos del sabotatge en segon pla i ha sortit el missatge indicant que el servidor comença a anar lent.</p>
-      <img src="../img/Cap1.png" alt="Captura 1: Permisos dels fitxers amb ls -l i execució de sospitosos.sh">
+      <img src="../img/Cap1.png" alt="Cap1">
 
       <h3>Captura 2 · Arbre de processos (part 1)</h3>
       <p>He executat <code>pstree -p $USER</code> per veure l'arbre de processos del meu usuari. En aquesta primera part he localitzat el procés <code>backup_nocturn</code> i els dos processos <code>espia</code> amb els seus respectius fills <code>sleep</code> penjant de <code>systemd</code>.</p>
