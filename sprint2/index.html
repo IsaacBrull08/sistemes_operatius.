@@ -29,22 +29,52 @@
         <tr><th>#</th><th>Apartat</th></tr>
       </thead>
       <tbody>
+                <tr><td>1</td><td><a href="#apartat1">Gestió de processos</a></td></tr>
         <tr><td>1</td><td><a href="#apartat1">Gestors de paquets</a></td></tr>
         <tr><td>2</td><td><a href="#apartat2">Permisos i propietaris d'arxius</a></td></tr>
       </tbody>
     </table>
 
     <article class="apartat" id="apartat1">
-      <h2>1. Gestors de paquets</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-         tempor incididunt ut labore et dolore magna aliqua. El gestor de
-         paquets permet <strong>instal·lar, actualitzar i eliminar</strong>
-         programari de manera controlada.</p>
-      <ul>
-        <li>Actualitzar la llista de paquets disponibles.</li>
-        <li>Instal·lar un paquet nou.</li>
-        <li>Eliminar un paquet que ja no es fa servir.</li>
-      </ul>
+      <h2>1. Gestió de processos</h2>
+    <h3>Captura 1 · Preparació dels scripts i inici del sabotatge</h3>
+      <p>He creat els cinc scripts de la missió dins la carpeta <code>~/missio</code> i els he donat permisos d'execució, tal com es veu amb l'ordre <code>ls -l</code> on tots apareixen amb la <code>x</code> i en color verd. Després, he executat <code>./sospitosos.sh</code> per posar en marxa els processos del sabotatge en segon pla i ha sortit el missatge indicant que el servidor comença a anar lent.</p>
+      <img src="../img/Cap1.png" alt="Captura 1: Permisos dels fitxers amb ls -l i execució de sospitosos.sh">
+
+      <h3>Captura 2 · Arbre de processos (part 1)</h3>
+      <p>He executat <code>pstree -p $USER</code> per veure l'arbre de processos del meu usuari. En aquesta primera part he localitzat el procés <code>backup_nocturn</code> i els dos processos <code>espia</code> amb els seus respectius fills <code>sleep</code> penjant de <code>systemd</code>.</p>
+      <img src="../img/Cap2.png" alt="Captura 2: Arbre de processos mostrant backup_nocturn i espia">
+
+      <h3>Captura 3 · Arbre de processos (part 2)</h3>
+      <p>Com que l'arbre de processos no cabia en una sola pantalla, he fet aquesta segona captura de <code>pstree -p $USER</code> on es veuen els quatre processos <code>minador</code> i la branca del meu terminal <code>ptyxis</code> amb <code>bash</code> i <code>pstree</code>.</p>
+      <img src="../img/Cap3.png" alt="Captura 3: Arbre de processos mostrant els processos minador">
+
+      <h3>Captura 4 · Detecció del consum de CPU amb top</h3>
+      <p>He obert <code>top</code> i he ordenat la llista per ús de CPU per trobar què alentiva el servidor. A dalt de tot he pogut comprovar que els quatre processos <code>minador</code> són els que més CPU consumeixen.</p>
+      <img src="../img/Cap4.png" alt="Captura 4: Ordre top ordenada per consum de CPU">
+
+      <h3>Captura 5 · Inspecció detallada amb pgrep i ps</h3>
+      <p>He buscat els PID dels minadors amb <code>pgrep minador</code> i he utilitzat <code>ps -o</code> per veure les columnes detallades dels processos <code>minador</code>, <code>espia</code> i <code>backup_nocturn</code>. Després, he consultat el PPID 3260 amb <code>ps -o pid,comm -p 3260</code> i he comprovat que el seu procés pare és <code>systemd</code>.</p>
+      <img src="../img/Cap5.png" alt="Captura 5: Consulta de PID, PPID i estat dels processos amb ps">
+
+      <h3>Captura 6 · Gestió de primer i segon pla</h3>
+      <p>Amb els dos terminals oberts, he monitoritzat el progrés de la descàrrega cada segon a la dreta amb <code>watch -n 1 cat progres.txt</code>. A l'esquerra he llançat <code>./descarrega.sh</code> en primer pla, l'he aturat amb <code>Ctrl + Z</code>, he consultat el treball amb <code>jobs -l</code>, l'he anat movent entre segon pla (<code>bg %1</code>) i primer pla (<code>fg %1</code>), i finalment l'he deixat corrent en segon pla.</p>
+      <img src="../img/Cap6.png" alt="Captura 6: Control de treballs amb jobs, bg i fg mentre es monitora la descàrrega">
+
+      <h3>Captura 7 · Supervisió de la descàrrega completada</h3>
+      <p>He fet servir <code>top -p</code> al terminal de l'esquerra per supervisar en temps real el consum de CPU dels processos actius. Paral·lelament, al terminal de la dreta he pogut comprovar que la descàrrega ja havia acabat amb el missatge <code>ubuntu.iso COMPLETADA en 264 s</code>.</p>
+      <img src="../img/Cap7.png" alt="Captura 7: Monitoratge amb top -p i descàrrega completada">
+
+      <h3>Captura 8 · Enviament de senyals (SIGTERM, SIGKILL, SIGSTOP i SIGCONT)</h3>
+      <p>He cercat els processos <code>espia</code> amb <code>pgrep -l espia</code> i he intentat tancar-los amb <code>kill</code>, però han ignorat el senyal <code>SIGTERM</code> mostrant el missatge <code>[espia] SIGTERM? Ni parlar-ne!</code>. Tot seguit els he matat definitivament amb <code>kill -9</code> i he comprovat amb <code>pgrep</code> que havien desaparegut. A continuació, he localitzat el PID de <code>backup_nocturn</code> i he provat els senyals <code>kill -STOP</code> i <code>kill -CONT</code> per pausar-lo i reprendre'l, comprovant-ne l'estat amb <code>ps</code>.</p>
+      <img src="../img/Cap8.png" alt="Captura 8: Enviament de senyals kill, kill -9, kill -STOP i kill -CONT">
+
+      <h3>Captura 9 · Comprovació del procés pare després de tancar el terminal</h3>
+      <p>Després de tancar el terminal anterior, n'he obert un de nou i he executat <code>pstree -ps</code> per revisar l'arbre de processos i veure com els processos en segon pla queden adoptats per <code>systemd(1)</code>.</p>
+      <img src="../img/Cap9.png" alt="Captura 9: Sortida de pstree -ps mostrant systemd(1)">
+
+      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+    </article>
       <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
     </article>
     <article class="apartat" id="apartat2">
